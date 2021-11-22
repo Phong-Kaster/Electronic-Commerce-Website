@@ -1,6 +1,6 @@
 <?php 
-    include dirname( __FILE__ , 2).'/lib/database.php';
-    include dirname( __FILE__ , 2).'/helpers/format.php';
+    include_once dirname( __FILE__ , 2).'/lib/database.php';
+    include_once dirname( __FILE__ , 2).'/helpers/format.php';
 
     class Category
     {

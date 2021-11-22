@@ -1,5 +1,3 @@
-
-
 <?php
     /**
      * connect MySQL database

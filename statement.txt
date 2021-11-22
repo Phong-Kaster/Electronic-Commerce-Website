@@ -1,3 +1,6 @@
 /*********************************************
  * @author Phong-Kaster
  *********************************************/
+
+ the directory "lib" have 2 files: database.php & session.php. They can be reused in another project.
+  the directory "helpers" have 2 files: format.php. They can be reused in another project.

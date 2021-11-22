@@ -14,6 +14,12 @@
                         <li><a href="branchAdd.php">Add Branch</a> </li>
                     </ul>
                 </li>
+                <li><a class="menuitem">Product</a>
+                    <ul class="submenu">
+                        <li><a href="productAll.php">All Product</a> </li>
+                        <li><a href="productAdd.php">Add Product</a> </li>
+                    </ul>
+                </li>
                  <li><a class="menuitem">Pages</a>
                     <ul class="submenu">
                         <li><a>About Us</a></li>
@@ -27,12 +33,7 @@
                     </ul>
                 </li>
                 
-                <li><a class="menuitem">Product</a>
-                    <ul class="submenu">
-                        <li><a href="productAll.php">All Product</a> </li>
-                        <li><a href="productAdd.php">Add Product</a> </li>
-                    </ul>
-                </li>
+                
 
                 <li><a class="menuitem">Site</a>
                     <ul class="submenu">
