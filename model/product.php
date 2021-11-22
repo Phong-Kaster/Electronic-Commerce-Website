@@ -102,7 +102,7 @@
 
         /*********************************************
          * @author Phong-Kaster
-         * get a specific category by ID
+         * get a specific category by $ID
          *********************************************/
         public function retrieveByID($id)
         {
@@ -115,6 +115,10 @@
         
         /*********************************************
          * @author Phong-Kaster
+         * Step 1: handle raw data
+         * Step 2: handle for uploading image | photo. Only accept for jpg - jpeg - png - gif
+         * Step 3: check input data
+         * Step 4: execute query
          *********************************************/
         public function updateByID($data, $files, $id)
         {
@@ -212,6 +216,7 @@
 
         /*********************************************
          * @author Phong-Kaster
+         * removing a product bases on $id
          *********************************************/
         public function deleteByID($id)
         {
