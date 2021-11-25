@@ -13,35 +13,26 @@
     		</div>
     		<div class="clear"></div>
     	</div>
+		
 	      <div class="section group">
+		  	<?php
+				$productList = $productModel->retrieveAllProductFeature();
+				if( $productList)
+				{
+					while( $element = $productList->fetch_assoc() )
+					{
+			?>
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="images/feature-pic1.png" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$505.22</span></p>
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
+					 <a href="preview.php?id=<?php echo $element['ID'] ?>"><img width="100px" src="<?= ASSET_URL ?>/admin/upload/<?php echo $element['image']; ?>" alt="" /></a>
+					 <h2><?php echo $element['name']; ?> </h2>
+					 <p><?php echo $formatModel->textShorten( $element['description'],50 );  ?></p>
+					 <p><span class="price">$ <?php echo $element['price']; ?></span></p>
+				     <div class="button"><span><a href="preview.php?id=<?php echo $element['ID'] ?>" class="details">Details</a></span></div>
 				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$620.87</span></p>   
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic3.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$220.97</span></p> 
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<img src="images/feature-pic4.png" alt="" />
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$415.54</span></p>  
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
+			<?php
+					}
+				}
+			?>
 			</div>
 			<div class="content_bottom">
     		<div class="heading">

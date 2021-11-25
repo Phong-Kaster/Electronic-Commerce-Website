@@ -23,6 +23,8 @@
     if( $_POST )
     {
         $status = $product->updateByID($_POST,$_FILES, $id);
+        echo $_POST['type'];
+        echo "</br>";
     }
 ?>
 <div class="grid_10">
@@ -157,15 +159,15 @@
                                     if( $productElement['type'] == 1)
                                     {
                                 ?>
-                                        <option selected value="1">Featured</option>
-                                        <option value="0">Non-Featured</option>
+                                        <option selected value="0">Featured</option>
+                                        <option value="1">Non-Featured</option>
                                 <?php
                                     }
                                     else
                                     {
                                 ?>
-                                        <option value="1">Featured</option>
-                                        <option selected value="0">Non-Featured</option>
+                                        <option value="0">Featured</option>
+                                        <option selected value="1">Non-Featured</option>
                                 <?php
                                     }
                                 ?>

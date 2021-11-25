@@ -71,8 +71,8 @@
 		});
 	</script>
     <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-    <link href="<?= ASSET_URL ?>/css/flexslider.css" rel='stylesheet' type='text/css' />
-	  <script defer src="<?= ASSET_URL ?>/js/jquery.flexslider.js"></script>
+    <link href="<?= ASSET_URL ?>/client/css/flexslider.css" rel='stylesheet' type='text/css' />
+	  <script defer src="<?= ASSET_URL ?>/client/js/jquery.flexslider.js"></script>
 	  <script type="text/javascript">
 		$(function(){
 		  SyntaxHighlighter.all();

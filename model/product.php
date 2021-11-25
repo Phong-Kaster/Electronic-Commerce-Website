@@ -39,6 +39,26 @@
 
         /*********************************************
          * @author Phong-Kaster
+         * retrieve every single category in table Category
+         *********************************************/
+        public function retrieveAllProductFeature()
+        {
+            $query = "SELECT Product.* , 
+                            Category.name as categoryName,
+                            Branch.name as branchName
+            FROM Product 
+            INNER JOIN Category ON Product.categoryID = Category.id
+            INNER JOIN Branch ON Product.brandID = Branch.ID
+            WHERE Product.type = '0'
+            ORDER BY Product.ID DESC
+            LIMIT 4";
+            $result = $this->database->select($query);
+            return $result;
+        }
+
+
+        /*********************************************
+         * @author Phong-Kaster
          * Step 1: escapes special characters, if any
          * Step 2: handle upload image
          * Step 3: execute query

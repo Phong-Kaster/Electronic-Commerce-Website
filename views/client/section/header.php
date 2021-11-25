@@ -1,22 +1,50 @@
+<?php
+ 	include dirname( __DIR__, 3) . '/lib/session.php';
+    Session::init();
+
+	include_once dirname( __DIR__ , 3).'/lib/database.php';
+    include_once dirname( __DIR__ , 3).'/helpers/format.php';
+
+	/* Automatically including all php files in MODEL directory */
+	spl_autoload_register(function($className){
+		include_once "model/" . $className . ".php";
+	});
+
+	$databaseModel = new Database();
+	$formatModel = new Format();
+
+	$cartModel = new Cart();
+	$userModel = new User();
+
+	$categoryModel = new Category();
+	$productModel = new Product();
+?>
+<?php
+  
+  header("Cache-Control: no-cache, must-revalidate");
+  header("Pragma: no-cache"); 
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+  header("Cache-Control: max-age=2592000");
+?>
 <!DOCTYPE HTML>
 <head>
 <title>E-Commerce Website</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link href="<?= ASSET_URL ?>/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="<?= ASSET_URL ?>/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="<?= ASSET_URL ?>/client/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="<?= ASSET_URL ?>/client/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
 
-<script src="<?= ASSET_URL ?>/js/jquerymain.js"></script>
-<script src="<?= ASSET_URL ?>/js/script.js" type="text/javascript"></script>
+<script src="<?= ASSET_URL ?>/client/js/jquerymain.js"></script>
+<script src="<?= ASSET_URL ?>/client/js/script.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="<?= ASSET_URL ?>/js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="<?= ASSET_URL ?>/js/nav.js"></script>
+<script type="text/javascript" src="<?= ASSET_URL ?>/client/js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="<?= ASSET_URL ?>/client/js/nav.js"></script>
 
-<script type="text/javascript" src="<?= ASSET_URL ?>/js/move-top.js"></script>
-<script type="text/javascript" src="<?= ASSET_URL ?>/js/easing.js"></script> 
+<script type="text/javascript" src="<?= ASSET_URL ?>/client/js/move-top.js"></script>
+<script type="text/javascript" src="<?= ASSET_URL ?>/client/js/easing.js"></script> 
 
-<script type="text/javascript" src="<?= ASSET_URL ?>/js/nav-hover.js"></script>
+<script type="text/javascript" src="<?= ASSET_URL ?>/client/js/nav-hover.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 
@@ -54,11 +82,11 @@
  </div>
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
-	  <li><a href="index.php">Home</a></li>
-	  <li><a href="products.php">Products</a> </li>
-	  <li><a href="topbrands.php">Top Brands</a></li>
-	  <li><a href="cart.php">Cart</a></li>
-	  <li><a href="contact.php">Contact</a> </li>
+	  <li><a href="<?= APP_URL ?>index.php">Home</a></li>
+	  <li><a href="<?= APP_URL ?>views/client/products.php">Products</a> </li>
+	  <li><a href="<?= APP_URL ?>views/client/topbrands.php">Top Brands</a></li>
+	  <li><a href="<?= APP_URL ?>views/client/cart.php">Cart</a></li>
+	  <li><a href="<?= APP_URL ?>views/client/contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
 </div>
