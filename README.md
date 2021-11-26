@@ -8,7 +8,7 @@
 - [**Features**](#features)
 - [**Timeline**](#timeline)
   - [**Phase 1** : **19-11-2021 to 22-11-2021**](#phase-1--19-11-2021-to-22-11-2021)
-  - [**Phase 2** : **xx-xx-2021 to xx-xx-2021**](#phase-2--xx-xx-2021-to-xx-xx-2021)
+  - [**Phase 2** : **25-11-2021 to xx-xx-2021**](#phase-2--25-11-2021-to-xx-xx-2021)
   - [**Phase 3** : **xx-xx-2021 to xx-xx-2021**](#phase-3--xx-xx-2021-to-xx-xx-2021)
   - [**Phase 4** : **xx-xx-2021 to xx-xx-2021**](#phase-4--xx-xx-2021-to-xx-xx-2021)
 - [**Tools**](#tools)
@@ -36,7 +36,8 @@ I hope I could help every one who newcomer to PHP.😎😎
   
 - Complete CRUD for product
   
-## **Phase 2** : **xx-xx-2021 to xx-xx-2021**
+## **Phase 2** : **25-11-2021 to xx-xx-2021**
+- Pour data into Client Index
 ## **Phase 3** : **xx-xx-2021 to xx-xx-2021**
 ## **Phase 4** : **xx-xx-2021 to xx-xx-2021**
 # [**Tools**](#tools)
