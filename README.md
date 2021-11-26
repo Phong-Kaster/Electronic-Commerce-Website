@@ -1,5 +1,10 @@
-<h1 align="center">Electronic-Commerce-Website</h1>
-<h2 align="center">This is a basic e-commerce website with pure PHP</h2>
+<h1 align="center">Electronic-Commerce-Website <br/>
+ This is a basic e-commerce website with pure PHP
+</h1>
+
+<p align="center"> 
+      <img src="#">
+</p>
 
 # [**Table of contents**](#table-of-contents)
 - [**Table of contents**](#table-of-contents)
