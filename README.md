@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center"> 
-      <img src="./avatar/cropped-640-320-942306.jpg">
+      <img src="./avatar/cropped-1280-640-942306.jpg">
 </p>
 
 # [**Table of contents**](#table-of-contents)
