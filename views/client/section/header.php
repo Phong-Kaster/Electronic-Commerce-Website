@@ -4,10 +4,10 @@
 
 	include_once dirname( __DIR__ , 3).'/lib/database.php';
     include_once dirname( __DIR__ , 3).'/helpers/format.php';
-
+	include_once dirname( __DIR__, 3).'/configuration/globalVariable.php';
 	/* Automatically including all php files in MODEL directory */
 	spl_autoload_register(function($className){
-		include_once "model/" . $className . ".php";
+		include_once dirname( __DIR__ , 3)."/model/" . strtolower( $className ). ".php";
 	});
 
 	$databaseModel = new Database();
@@ -18,6 +18,10 @@
 
 	$categoryModel = new Category();
 	$productModel = new Product();
+
+	$brandModel = new Branch();
+
+	
 ?>
 <?php
   

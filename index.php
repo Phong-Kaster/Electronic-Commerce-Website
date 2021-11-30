@@ -16,7 +16,7 @@
 		
 	      <div class="section group">
 		  	<?php
-				$productList = $productModel->retrieveAllProductFeature();
+				$productList = $productModel->retrieveFeaturedProducts();
 				if( $productList)
 				{
 					while( $element = $productList->fetch_assoc() )
@@ -27,7 +27,7 @@
 					 <h2><?php echo $element['name']; ?> </h2>
 					 <p><?php echo $formatModel->textShorten( $element['description'],50 );  ?></p>
 					 <p><span class="price">$ <?php echo $element['price']; ?></span></p>
-				     <div class="button"><span><a href="preview.php?id=<?php echo $element['ID'] ?>" class="details">Details</a></span></div>
+				     <div class="button"><span><a href="<?= APP_URL ?>views/client/preview.php?id=<?php echo $element['ID'] ?>" class="details">Details</a></span></div>
 				</div>
 			<?php
 					}
@@ -41,31 +41,23 @@
     		<div class="clear"></div>
     	</div>
 			<div class="section group">
-				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="images/new-pic1.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p><span class="price">$403.66</span></p>
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/new-pic2.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p><span class="price">$621.75</span></p> 
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p><span class="price">$428.02</span></p>
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-				 <img src="images/new-pic3.jpg" alt="" />
-					 <h2>Lorem Ipsum is simply </h2>					 
-					 <p><span class="price">$457.88</span></p>
-
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
+				<?php
+					$productList = $productModel->retrieveNewProducts();
+					if( $productList)
+					{
+						while( $element = $productList->fetch_assoc() )
+						{
+				?>
+					<div class="grid_1_of_4 images_1_of_4">
+						<a href="preview.html?id=<?php echo $element['ID'] ?>"><img width="100px;" src="<?= ASSET_URL ?>/admin/upload/<?php echo $element['image']; ?>" alt="" /></a>
+						<h2><?php echo $element['name'] ?></h2>
+						<p><span class="price">$ <?php echo $element['price']; ?></span></p>
+						<div class="button"><span><a href="<?= APP_URL ?>views/client/preview.php?id=<?php echo $element['ID'] ?>" class="details">Details</a></span></div>
+					</div>
+				<?php
+						}
+					}
+				?>
 			</div>
     </div>
  </div>

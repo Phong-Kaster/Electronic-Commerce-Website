@@ -16,6 +16,42 @@
             $this->format = new Format();
         }
        
+        public function retrieveProductByBrandID($id)
+        {
+            $query = "SELECT Product.* , 
+                            Category.name as categoryName
+            FROM Product 
+            INNER JOIN Category ON Product.categoryID = Category.id
+            WHERE Product.categoryID = $id";
+            $result = $this->database->select($query);
+            return $result;
+        }
+
+        public function retrieveDetailProductByID($id)
+        {
+            $query = "SELECT Product.* , 
+                            Category.name as categoryName,
+                            Branch.name as branchName
+            FROM Product 
+            INNER JOIN Category ON Product.categoryID = Category.id
+            INNER JOIN Branch ON Product.brandID = Branch.ID
+            WHERE Product.ID = $id";
+            $result = $this->database->select($query);
+            return $result;
+        }
+
+
+
+        /*********************************************
+         * @author Phong-Kaster
+         * get a specific category by $ID
+         *********************************************/
+        public function retrieveByID($id)
+        {
+            $query = "SELECT * FROM Product WHERE ID = '$id' ";
+            $result = $this->database->select($query);
+            return $result;
+        }
 
 
         /*********************************************
@@ -41,7 +77,7 @@
          * @author Phong-Kaster
          * retrieve every single category in table Category
          *********************************************/
-        public function retrieveAllProductFeature()
+        public function retrieveFeaturedProducts()
         {
             $query = "SELECT Product.* , 
                             Category.name as categoryName,
@@ -56,6 +92,25 @@
             return $result;
         }
 
+
+
+        /*********************************************
+         * @author Phong-Kaster
+         * retrieve every single category in table Category
+         *********************************************/
+        public function retrieveNewProducts()
+        {
+            $query = "SELECT Product.* , 
+                            Category.name as categoryName,
+                            Branch.name as branchName
+            FROM Product 
+            INNER JOIN Category ON Product.categoryID = Category.id
+            INNER JOIN Branch ON Product.brandID = Branch.ID
+            ORDER BY Product.ID DESC
+            LIMIT 4";
+            $result = $this->database->select($query);
+            return $result;
+        }
 
         /*********************************************
          * @author Phong-Kaster
@@ -120,16 +175,7 @@
 
 
 
-        /*********************************************
-         * @author Phong-Kaster
-         * get a specific category by $ID
-         *********************************************/
-        public function retrieveByID($id)
-        {
-            $query = "SELECT * FROM Product WHERE ID = '$id' ";
-            $result = $this->database->select($query);
-            return $result;
-        }
+        
 
 
         

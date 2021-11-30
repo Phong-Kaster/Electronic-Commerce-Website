@@ -1,6 +1,6 @@
 <?php
     /**
-     * connect MySQL database
+     * connect MySQL database - global variable
      */
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
