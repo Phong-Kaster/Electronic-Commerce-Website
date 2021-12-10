@@ -43,6 +43,10 @@ I hope I could help every one who newcomer to PHP.😎😎
   
 ## **Phase 2** : **25-11-2021 to xx-xx-2021**
 - Pour data into Client Index
+  
+- Complete product's preview
+
+- Complete product list searched by category ID
 ## **Phase 3** : **xx-xx-2021 to xx-xx-2021**
 ## **Phase 4** : **xx-xx-2021 to xx-xx-2021**
 # [**Tools**](#tools)

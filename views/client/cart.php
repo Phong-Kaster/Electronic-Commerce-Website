@@ -2,6 +2,13 @@
 	include '../../configuration/globalVariable.php';
 	include ( __DIR__ .  '/section/header.php' );
 ?>
+<?
+	$totalPrice = 0;
+	if( isset($_POST['submit']) )
+	{
+
+	}
+?>
  <div class="main">
     <div class="content">
     	<div class="cartoption">		
@@ -16,88 +23,57 @@
 								<th width="20%">Total Price</th>
 								<th width="10%">Action</th>
 							</tr>
-							<tr>
-								<td>Product Title</td>
-								<td><img src="../../public/client/images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							
-							<tr>
-								<td>Product Title</td>
-								<td><img src="../../public/client/images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							
-							<tr>
-								<td>Product Title</td>
-								<td><img src="../../public/client/images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							<tr>
-								<td>Product Title</td>
-								<td><img src="../../public/client/images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							
-							<tr>
-								<td>Product Title</td>
-								<td><img src="../../public/client/images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							
+
+							<?php
+								$cart = $cartModel->retrieveDetailCart();
+								if( $cart )
+								{
+									$subTotal = 0;
+									while( $element = $cart->fetch_assoc() )
+									{
+							?>
+								<tr>
+									<td><?php echo $element['ProductName']; ?></td>
+									<td><img src="<?= ASSET_URL ?>/admin/upload/<?php echo $element['ProductImage'] ?>" alt=""/></td>
+									<td><?php echo $element['ProductPrice']; ?></td>
+									<td>
+										<form action="" method="post">
+											<input type="number" name="" value="<?php echo $element['quantity'] ?>"/>
+											<input type="submit" name="submit" value="Update"/>
+										</form>
+									</td>
+									<td>
+										<?php 
+											$totalPrice = (float)$element['ProductPrice'] * $element['quantity'];
+											$subTotal += $totalPrice;
+											echo number_format($totalPrice);
+										?>
+									</td>
+									<td><a href="">X</a></td>
+								</tr>
+							<?php 
+									}
+								}
+							?>
 						</table>
 						<table style="float:right;text-align:left;" width="40%">
 							<tr>
 								<th>Sub Total : </th>
-								<td>TK. 210000</td>
+								<td><?php echo number_format($subTotal) ?></td>
 							</tr>
 							<tr>
 								<th>VAT : </th>
-								<td>TK. 31500</td>
+								<td><?php 
+										$VAT = $subTotal * 0.1;
+										echo number_format($VAT);
+									?></td>
 							</tr>
 							<tr>
 								<th>Grand Total :</th>
-								<td>TK. 241500 </td>
+								<td><?php 
+										$grandTotal = $subTotal + $VAT;
+										echo number_format($grandTotal) ;
+									?> </td>
 							</tr>
 					   </table>
 					</div>

@@ -1,9 +1,13 @@
 <?php
    include '../../configuration/globalVariable.php';
    include ( __DIR__ .  '/section/header.php' );
-   ?>
+?>
 <?php 
    $APP_URL = APP_URL;
+
+   /**************************************
+	* GET PRODUCT DETAIL WITH ITS ID
+    **************************************/
    if( $_GET['id'] )
    {
    	$id = $_GET['id'];
@@ -13,7 +17,21 @@
    {
    	echo "<script> window.location = '$APP_URL/index.php' </script>";
    }
-   ?>
+
+
+
+   /**************************************
+	* HANDLE WITH CART
+	* $id is the id of product
+	* $quantity is the number of product
+    **************************************/
+   if( isset( $_POST['submit'] ) )
+   {
+	   	echo "hello";
+	    $quantity = $_POST['quantity'];
+		$cartModel->addProductToCart($id, $quantity);
+   }
+?>
 <div class="main">
 <div class="content">
    <div class="section group">
@@ -36,9 +54,9 @@
 				<p>Brand:<span><?php echo $element['branchName']; ?></span></p>
 				</div>
 				<div class="add-cart">
-				<form action="cart.php" method="post">
-					<input type="number" class="buyfield" name="" value="1"/>
-					<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>
+				<form action="" method="post">
+					<input type="number" class="buyfield" name="quantity" value="1"/>
+					<input type="submit" class="buysubmit" name="submit" value="Add Product To Cart"/>
 				</form>
 				</div>
 			</div>
