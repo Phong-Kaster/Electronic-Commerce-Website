@@ -27,9 +27,8 @@
     **************************************/
    if( isset( $_POST['submit'] ) )
    {
-	   	echo "hello";
 	    $quantity = $_POST['quantity'];
-		$cartModel->addProductToCart($id, $quantity);
+		$addToCart = $cartModel->addProductToCart($id, $quantity);
    }
 ?>
 <div class="main">
@@ -57,6 +56,13 @@
 				<form action="" method="post">
 					<input type="number" class="buyfield" name="quantity" value="1"/>
 					<input type="submit" class="buysubmit" name="submit" value="Add Product To Cart"/>
+					<?php 
+						/**if product added, show message */
+						if( isset($addToCart) )
+						{
+							echo $addToCart;
+						}
+					?>
 				</form>
 				</div>
 			</div>

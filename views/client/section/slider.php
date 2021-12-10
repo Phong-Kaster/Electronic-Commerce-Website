@@ -51,10 +51,10 @@
 				<section class="slider">
 					<div class="flexslider">
 						<ul class="slides">
-							<li><img src="<?= ASSET_URL ?>/client/images/1.jpg" alt=""/></li>
-							<li><img src="<?= ASSET_URL ?>/client/images/2.jpg" alt=""/></li>
-							<li><img src="<?= ASSET_URL ?>/client/images/3.jpg" alt=""/></li>
-							<li><img src="<?= ASSET_URL ?>/client/images/4.jpg" alt=""/></li>
+							<li><img src="<?= ASSET_URL ?>/client/images/flag1.jpg" alt=""/></li>
+							<li><img src="<?= ASSET_URL ?>/client/images/flag7.jpg" alt=""/></li>
+							<li><img src="<?= ASSET_URL ?>/client/images/flag3.jpg" alt=""/></li>
+							<li><img src="<?= ASSET_URL ?>/client/images/flag5.jpg" alt=""/></li>
 						</ul>
 					</div>
 				</section>

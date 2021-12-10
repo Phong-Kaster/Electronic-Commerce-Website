@@ -36,6 +36,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link href="<?= ASSET_URL ?>/client/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="<?= ASSET_URL ?>/client/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
 
@@ -75,7 +77,23 @@
 					<div class="cart">
 						<a href="#" title="View my shopping cart" rel="nofollow">
 								<span class="cart_title">Cart</span>
-								<span class="no_product">(empty)</span>
+								<span class="no_product">
+  								<?php 
+								  	/***************************************************************************
+									 *	check if any cart exists or not. If yes, show session named "accruedExpenses" 
+									 ***************************************************************************/
+									$accruedExpenses = Session::get("accruedExpenses");
+									$cart = $cartModel->findCurrentCart();
+									if( $cart )
+									{
+										echo number_format( $accruedExpenses );
+									}
+									else
+									{
+										echo " ";
+									}
+								?>
+								</span>
 							</a>
 						</div>
 			      </div>

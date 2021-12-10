@@ -51,6 +51,13 @@
             /*Step 2 */
             $sessionID = session_id();
 
+            $query = "SELECT * FROM Cart WHERE productID = $productID AND sessionID = '$sessionID' ";
+            $status = $this->database->select($query);
+            if( $status )
+            {
+                return "<span style='color:red'>Product Added Successfully</span>";
+            }
+
 
             /*Step 3 */
             $query = "SELECT * FROM Product WHERE ID = $productID";
@@ -77,7 +84,7 @@
 
 
         /**************************************
-         * 
+         * retrieve detain product quantity, name, ID... from a cart
          **************************************/
         public function retrieveDetailCart()
         {
@@ -85,12 +92,94 @@
             $query = "SELECT Product.name as ProductName, 
                     Product.image as ProductImage , 
                     Product.price as ProductPrice,
+                    Product.ID as ProductID,
                     Cart.*  
             FROM Product, Cart
             WHERE Cart.productID = Product.ID
             AND Cart.sessionID = '$sessionID' ";
 
             $result = $this->database->select($query);
+            return $result;
+        }
+
+
+
+        /***************************************
+         * Delete product in cart
+         ***************************************/
+        public function deleteProductInCart($cartID, $productID)
+        {
+            /*Step 1*/
+            if( empty($cartID) || empty($productID) )
+            {
+                return;
+            }
+
+
+            /*Step 2*/
+            $cartID = mysqli_real_escape_string($this->database->link, $cartID);
+            $productID = mysqli_real_escape_string( $this->database->link, $productID);
+            
+
+            /*Step 3*/
+            $query = "DELETE FROM Cart WHERE ID = $cartID AND productID = $productID";
+            $status = $this->database->delete($query);
+            if( $status )
+            {
+                $message = "<span style='color:green'>Action Successfully !</span>";
+                return $message;
+            }
+            else
+            {
+                $message = "<span style='color:red'>Action Unsuccessfully !</span>";
+                return $message;
+            }
+        }
+
+
+
+        /***************************************
+         * update Product Quantity
+         ***************************************/
+        public function updateProductQuantity($cartID, $productID, $quantity)
+        {
+            /*Step 1*/
+            if( empty($cartID) || empty($productID) || empty($quantity) )
+            {
+                return;
+            }
+
+            /*Step 2*/
+            $cartID = mysqli_real_escape_string($this->database->link, $cartID);
+            $productID = mysqli_real_escape_string( $this->database->link, $productID);
+            $quantity = mysqli_real_escape_string( $this->database->link, $quantity);
+
+
+            /*Step 3 */
+            $query = "UPDATE Cart SET quantity = $quantity WHERE ID = $cartID AND productID = $productID";
+            $status = $this->database->update($query);
+            if( $status )
+            {
+                $message = "<span style='color:green'>Action Successfully !</span>";
+                return $message;
+            }
+            else
+            {
+                $message = "<span style='color:red'>Action Unsuccessfully !</span>";
+                return $message;
+            }
+        }
+
+
+
+        public function findCurrentCart()
+        {
+            /*Step 1*/
+            $sessionID = session_id();
+
+            $query = "SELECT * FROM Cart WHERE sessionID = '$sessionID' ";
+            $result = $this->database->select($query);
+
             return $result;
         }
     }
