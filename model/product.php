@@ -112,6 +112,21 @@
             return $result;
         }
 
+
+        /*********************************************
+         * @author Phong-Kaster
+         * retrieve every single category in table Category
+         *********************************************/
+        public function retrieveLatestProducts()
+        {
+            $query = "SELECT *
+            FROM Product 
+            ORDER BY ID DESC
+            LIMIT 4";
+            $result = $this->database->select($query);
+            return $result;
+        }
+
         /*********************************************
          * @author Phong-Kaster
          * Step 1: escapes special characters, if any
