@@ -13,8 +13,8 @@
 - [**Features**](#features)
 - [**Timeline**](#timeline)
   - [**Phase 1** : **19-11-2021 to 22-11-2021**](#phase-1--19-11-2021-to-22-11-2021)
-  - [**Phase 2** : **25-11-2021 to xx-xx-2021**](#phase-2--25-11-2021-to-xx-xx-2021)
-  - [**Phase 3** : **xx-xx-2021 to xx-xx-2021**](#phase-3--xx-xx-2021-to-xx-xx-2021)
+  - [**Phase 2** : **25-11-2021 to 28-11-2021**](#phase-2--25-11-2021-to-28-11-2021)
+  - [**Phase 3** : **28-12-2021 to xx-xx-2021**](#phase-3--28-12-2021-to-xx-xx-2021)
   - [**Phase 4** : **xx-xx-2021 to xx-xx-2021**](#phase-4--xx-xx-2021-to-xx-xx-2021)
 - [**Tools**](#tools)
 - [**Made with 💘 and PHP <img src="https://www.vectorlogo.zone/logos/php/php-ar21.svg" width="50px">**](#made-with--and-php-)
@@ -41,13 +41,17 @@ I hope I could help every one who newcomer to PHP.😎😎
   
 - Complete CRUD for product
   
-## **Phase 2** : **25-11-2021 to xx-xx-2021**
+## **Phase 2** : **25-11-2021 to 28-11-2021**
 - Pour data into Client Index
   
 - Complete product's preview
 
 - Complete product list searched by category ID
-## **Phase 3** : **xx-xx-2021 to xx-xx-2021**
+  
+## **Phase 3** : **28-12-2021 to xx-xx-2021**
+- Sign in | Sign up for customer
+
+- Logout for customer
 ## **Phase 4** : **xx-xx-2021 to xx-xx-2021**
 # [**Tools**](#tools)
 # [**Made with 💘 and PHP <img src="https://www.vectorlogo.zone/logos/php/php-ar21.svg" width="50px">**](#made-with-love-and-php)

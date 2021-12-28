@@ -20,8 +20,9 @@
 	$productModel = new Product();
 
 	$brandModel = new Branch();
+	$customerModel = new Customer();
 
-	
+	$APP_URL = APP_URL
 ?>
 <?php
   
@@ -97,7 +98,29 @@
 							</a>
 						</div>
 			      </div>
-		   <div class="login"><a href="login.html">Login</a></div>
+			<?php 
+				if( isset( $_GET['customerID']))
+				{
+					Session::destroy();
+					header('Location:index.php');
+				}
+			?>
+			
+			<div class="login">					
+			<?php 
+				if( !Session::get("customerID") )
+				{
+					echo "<a href='views/client/login.php'>Login</a>";
+					
+				}
+				else
+				{
+					$id = Session::get("customerID");
+					echo "<a href='?customerID=$id'>Logout</a>";
+				}
+			?>
+		   
+		</div>
 		 <div class="clear"></div>
 	 </div>
 	 <div class="clear"></div>
